@@ -1,5 +1,6 @@
 from app.query.house import HouseQuery
 from app.schema.house import HouseSchema
+from app.schema.base_response import BaseAPIResponse
 
 
 class HouseLogic:
@@ -7,5 +8,5 @@ class HouseLogic:
     def get_house(session):
 
         house = HouseQuery.get_house(session)
-
-        return [HouseSchema.model_validate(h).model_dump() for h in house]
+        result = [HouseSchema.model_validate(h).model_dump() for h in house]
+        return BaseAPIResponse(success=True, data=result)
