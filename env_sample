@@ -1,0 +1,1 @@
+CONNECT_STRING="mysql+pymysql://root:lin870312@localhost:3306/rental_system"
